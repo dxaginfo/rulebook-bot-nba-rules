@@ -1,8 +1,10 @@
 version: '3.8'
 
 services:
-  app:
-    build: .
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     environment:
@@ -12,4 +14,17 @@ services:
       - PINECONE_API_KEY=${PINECONE_API_KEY}
       - PINECONE_ENVIRONMENT=${PINECONE_ENVIRONMENT}
       - PINECONE_INDEX=${PINECONE_INDEX}
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    restart: unless-stopped
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - server
     restart: unless-stopped
