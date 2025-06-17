@@ -50,10 +50,6 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        nba: {
-          blue: "#17408B",
-          red: "#C9082A"
-        }
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -69,20 +65,10 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
-        "typing": {
-          "0%": { width: "0%" },
-          "100%": { width: "100%" }
-        },
-        "blink": {
-          "0%, 100%": { "border-color": "transparent" },
-          "50%": { "border-color": "hsl(var(--primary))" }
-        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "typing": "typing 1.5s ease-in-out infinite alternate",
-        "cursor-blink": "blink 1s ease-in-out infinite"
       },
     },
   },
